@@ -17,6 +17,7 @@
 ### 확장성 
 > 문제은행(JSON)만 추가/수정하면 손쉽게 문제 확장 가능
 
+</br>
 
 ### 문제은행 구조 (problems.json 예시)
 ```
@@ -30,17 +31,18 @@ json
   },
   ...
 ]
-subject: 과목명
-
-question: 문제 내용
-
-answer: 정답(단답형)
-
-explanation: 해설
 ```
+- subject: 과목명
+- question: 문제 내용
+- answer: 정답(단답형)
+- explanation: 해설
+  
+</br>
 
 ### 설치 및 실행 방법
 폴더 다운로드 후 .html 파일 실행
+
+</br>
 
 ### 문제은행 준비
 problems.json 문제를 직접 추가/수정 가능합니다.
