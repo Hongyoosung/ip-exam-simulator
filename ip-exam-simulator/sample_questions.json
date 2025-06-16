@@ -1,0 +1,102 @@
+{
+    "소프트웨어 설계": [
+        {
+            "id": 1,
+            "question": "소프트웨어 생명주기에서 요구사항 분석 단계에서 사용되는 다이어그램으로, 시스템의 정적 구조를 나타내는 UML 다이어그램은?",
+            "answer": "클래스 다이어그램",
+            "explanation": "클래스 다이어그램(Class Diagram)은 UML에서 시스템의 클래스, 속성, 메서드, 관계 등을 나타내는 정적 구조 다이어그램입니다."
+        },
+        {
+            "id": 2,
+            "question": "객체지향 설계 원칙 중 'Single Responsibility Principle'의 약자는?",
+            "answer": "SRP",
+            "explanation": "SRP(Single Responsibility Principle)는 '단일 책임 원칙'으로, 하나의 클래스는 하나의 책임만 가져야 한다는 원칙입니다."
+        },
+        {
+            "id": 3,
+            "question": "소프트웨어의 설계 품질을 높이기 위한 디자인 패턴 중, 객체 생성을 서브클래스에 위임하는 패턴은?",
+            "answer": "팩토리 메소드 패턴",
+            "explanation": "팩토리 메소드 패턴(Factory Method Pattern)은 객체 생성을 서브클래스에 위임하여 캡슐화하는 디자인 패턴입니다."
+        }
+    ],
+    "소프트웨어 개발": [
+        {
+            "id": 4,
+            "question": "다음 C 코드의 실행 결과는?\nint a = 10, b = 20;\nprintf(\"%d\", a++ + ++b);",
+            "answer": "31",
+            "explanation": "a++(후위 증가)는 현재 값 10을 사용한 후 증가, ++b(전위 증가)는 증가 후 값 21을 사용하므로 10 + 21 = 31이 됩니다."
+        },
+        {
+            "id": 5,
+            "question": "소스코드를 기계어로 변환하는 과정에서 중간 단계에서 생성되는 코드를 무엇이라고 하는가?",
+            "answer": "중간 코드(Intermediate Code)",
+            "explanation": "컴파일러는 소스코드를 분석한 후 최적화된 기계어로 변환하기 전에 중간 코드(Intermediate Code)를 생성합니다."
+        },
+        {
+            "id": 6,
+            "question": "다음 중 소프트웨어 버전 관리 시스템이 아닌 것은?",
+            "answer": "Docker",
+            "explanation": "Docker는 컨테이너 기반 가상화 도구이며, Git, SVN, Mercurial 등이 버전 관리 시스템입니다."
+        }
+    ],
+    "데이터베이스 구축": [
+        {
+            "id": 7,
+            "question": "다음 SQL 쿼리의 결과는?\nSELECT COUNT(*) FROM 학생 WHERE 학과='컴퓨터공학' AND 학년=3;",
+            "answer": "컴퓨터공학과 3학년 학생 수",
+            "explanation": "해당 쿼리는 학과가 '컴퓨터공학'이고 학년이 3인 학생의 수를 계산합니다."
+        },
+        {
+            "id": 8,
+            "question": "데이터베이스 정규화 과정에서 이행적 종속(Transitive Dependency)을 제거하는 정규형은?",
+            "answer": "3NF",
+            "explanation": "제3정규형(3NF)은 제2정규형을 만족하면서 기본키에 속하지 않은 속성들 간의 이행적 종속을 제거한 상태입니다."
+        },
+        {
+            "id": 9,
+            "question": "관계형 데이터베이스에서 여러 테이블의 데이터를 결합할 때 사용하는 연산은?",
+            "answer": "JOIN",
+            "explanation": "JOIN 연산은 두 개 이상의 테이블에서 관련된 튜플들을 결합하는 연산입니다."
+        }
+    ],
+    "프로그래밍 언어 활용": [
+        {
+            "id": 10,
+            "question": "다음 Python 코드의 실행 결과는?\nprint([x for x in range(10) if x % 2 == 0])",
+            "answer": "[0, 2, 4, 6, 8]",
+            "explanation": "이 코드는 0부터 9까지의 숫자 중 짝수만 선택하여 리스트로 반환하는 리스트 컴프리헨션입니다."
+        },
+        {
+            "id": 11,
+            "question": "Java에서 다형성(Polymorphism)을 구현하는 방법 중 하나는?",
+            "answer": "메소드 오버라이딩",
+            "explanation": "메소드 오버라이딩(Method Overriding)은 부모 클래스의 메소드를 자식 클래스에서 재정의하여 다형성을 구현하는 방법입니다."
+        },
+        {
+            "id": 12,
+            "question": "JavaScript에서 비동기 처리를 위해 사용되는 객체는?",
+            "answer": "Promise",
+            "explanation": "Promise는 JavaScript에서 비동기 연산의 최종 완료(또는 실패)와 그 결과값을 나타내는 객체입니다."
+        }
+    ],
+    "정보시스템 구축관리": [
+        {
+            "id": 13,
+            "question": "네트워크에서 IP 주소 변환 기술로, 내부 네트워크와 외부 네트워크 간의 통신을 가능하게 하는 기술은?",
+            "answer": "NAT",
+            "explanation": "NAT(Network Address Translation)는 사설 IP 주소를 공인 IP 주소로 변환하여 인터넷 접속을 가능하게 하는 기술입니다."
+        },
+        {
+            "id": 14,
+            "question": "보안 공격 중 서비스 거부(DoS) 공격의 일종으로, 출발지 IP와 목적지 IP를 동일하게 설정하여 시스템을 마비시키는 공격은?",
+            "answer": "Land Attack",
+            "explanation": "Land Attack은 출발지 IP와 목적지 IP를 동일하게 설정하여 시스템이 자신에게 무한히 응답하게 만드는 DoS 공격입니다."
+        },
+        {
+            "id": 15,
+            "question": "소프트웨어 개발 프로세스에서 요구사항 변경이 빈번할 때 적합한 개발 방법론은?",
+            "answer": "애자일(Agile) 방법론",
+            "explanation": "애자일(Agile) 방법론은 변화에 유연하게 대응할 수 있는 반복적이고 점진적인 개발 방법론입니다."
+        }
+    ]
+}

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정보처리기사 실기 시험 대비 프로그램</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 상단 제목 바 -->
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">정보처리기사 실기 시험 대비 프로그램</h1>
+            <div class="header__stats" id="headerStats">
+                <span>풀어본 문제: <span id="solvedCount">0</span>개</span>
+                <span>정답률: <span id="accuracyRate">0</span>%</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 컨테이너 -->
+    <main class="container main-container">
+        <!-- 메인 화면 -->
+        <section id="mainScreen" class="screen active">
+            <div class="welcome-section">
+                <h2>정보처리기사 실기 시험 대비</h2>
+                <p>효과적인 시험 준비를 위한 종합 학습 프로그램입니다.</p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>총 문제 수</h3>
+                        <p class="stat-number">100+</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>과목 수</h3>
+                        <p class="stat-number">5</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>실전 모의고사</h3>
+                        <p class="stat-number">30문제</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-section">
+                <div class="menu-grid">
+                    <button class="menu-card" onclick="startExam()">
+                        <div class="menu-icon">📝</div>
+                        <h3>실전 모의고사</h3>
+                        <p>30문제 랜덤 출제로 실제 시험을 대비해보세요</p>
+                    </button>
+                    
+                    <button class="menu-card" onclick="showSubjectLearning()">
+                        <div class="menu-icon">📚</div>
+                        <h3>과목별 학습</h3>
+                        <p>과목별로 체계적인 학습을 진행하세요</p>
+                    </button>
+                    
+                    <button class="menu-card" onclick="showProgress()">
+                        <div class="menu-icon">📊</div>
+                        <h3>학습 현황</h3>
+                        <p>학습 진도와 성취도를 확인하세요</p>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 시험 화면 -->
+        <section id="examScreen" class="screen">
+            <div class="exam-header">
+                <div class="exam-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="examProgress"></div>
+                    </div>
+                    <span class="progress-text">
+                        <span id="currentQuestion">1</span> / <span id="totalQuestions">30</span>
+                    </span>
+                </div>
+                <button class="btn btn--secondary" onclick="showMainScreen()">메인으로</button>
+            </div>
+            
+            <div class="question-container">
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="question-subject" id="questionSubject"></span>
+                        <span class="question-number">문제 <span id="questionNumber">1</span></span>
+                    </div>
+                    <div class="question-content" id="questionContent"></div>
+                </div>
+                
+                <div class="answer-section">
+                    <label class="form-label" for="answerInput">정답 입력</label>
+                    <input type="text" id="answerInput" class="form-control" placeholder="정답을 입력하세요">
+                    <div class="answer-buttons">
+                        <button class="btn btn--primary" onclick="checkAnswer()">정답 확인</button>
+                        <button class="btn btn--secondary" onclick="nextQuestion()" id="nextBtn" style="display: none;">다음 문제</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 과목별 학습 화면 -->
+        <section id="subjectScreen" class="screen">
+            <div class="screen-header">
+                <h2>과목별 학습</h2>
+                <button class="btn btn--secondary" onclick="showMainScreen()">메인으로</button>
+            </div>
+            
+            <div class="subject-grid" id="subjectGrid">
+                <!-- 과목 카드들이 JavaScript로 생성됩니다 -->
+            </div>
+        </section>
+
+        <!-- 과목별 문제 화면 -->
+        <section id="subjectQuestionsScreen" class="screen">
+            <div class="screen-header">
+                <h2 id="subjectTitle"></h2>
+                <div class="header-buttons">
+                    <button class="btn btn--outline" onclick="showSubjectLearning()">목록으로</button>
+                    <button class="btn btn--secondary" onclick="showMainScreen()">메인으로</button>
+                </div>
+            </div>
+            
+            <div class="questions-list" id="questionsList">
+                <!-- 문제 목록이 JavaScript로 생성됩니다 -->
+            </div>
+        </section>
+
+        <!-- 학습 현황 화면 -->
+        <section id="progressScreen" class="screen">
+            <div class="screen-header">
+                <h2>학습 현황</h2>
+                <button class="btn btn--secondary" onclick="showMainScreen()">메인으로</button>
+            </div>
+            
+            <div class="progress-content">
+                <div class="progress-cards">
+                    <div class="progress-card">
+                        <h3>전체 학습 현황</h3>
+                        <div class="progress-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">풀어본 문제</span>
+                                <span class="stat-value" id="totalSolved">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">정답 수</span>
+                                <span class="stat-value" id="totalCorrect">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">정답률</span>
+                                <span class="stat-value" id="totalAccuracy">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-card">
+                        <h3>모의고사 현황</h3>
+                        <div class="progress-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">시험 횟수</span>
+                                <span class="stat-value" id="examCount">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">평균 점수</span>
+                                <span class="stat-value" id="avgScore">0점</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">최고 점수</span>
+                                <span class="stat-value" id="bestScore">0점</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subject-progress" id="subjectProgress">
+                    <h3>과목별 학습 현황</h3>
+                    <!-- 과목별 진도가 JavaScript로 생성됩니다 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 시험 결과 화면 -->
+        <section id="resultScreen" class="screen">
+            <div class="screen-header">
+                <h2>시험 결과</h2>
+                <button class="btn btn--secondary" onclick="showMainScreen()">메인으로</button>
+            </div>
+            
+            <div class="result-content">
+                <div class="result-card">
+                    <div class="result-score">
+                        <h3>최종 점수</h3>
+                        <div class="score-display">
+                            <span class="score-number" id="finalScore">0</span>
+                            <span class="score-total">/ 100점</span>
+                        </div>
+                        <div class="score-status" id="scoreStatus"></div>
+                    </div>
+                    
+                    <div class="result-stats">
+                        <div class="result-stat">
+                            <span class="stat-label">정답</span>
+                            <span class="stat-value correct" id="correctCount">0</span>
+                        </div>
+                        <div class="result-stat">
+                            <span class="stat-label">오답</span>
+                            <span class="stat-value incorrect" id="incorrectCount">0</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wrong-answers" id="wrongAnswers">
+                    <h3>오답 노트</h3>
+                    <!-- 오답 내용이 JavaScript로 생성됩니다 -->
+                </div>
+                
+                <div class="result-actions">
+                    <button class="btn btn--primary" onclick="startExam()">다시 시험보기</button>
+                    <button class="btn btn--outline" onclick="showMainScreen()">메인으로</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 모달 -->
+    <div id="answerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-result" id="modalResult"></span>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4>정답</h4>
+                    <p id="modalCorrectAnswer"></p>
+                </div>
+                <div class="modal-section">
+                    <h4>해설</h4>
+                    <p id="modalExplanation"></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn--primary" onclick="closeModal()">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
